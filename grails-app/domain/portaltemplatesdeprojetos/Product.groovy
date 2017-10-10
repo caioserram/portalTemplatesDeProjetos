@@ -7,7 +7,7 @@ class Product {
     BigDecimal listPrice
     BigDecimal salePrice
     Category category
-    List<Image> images
+    String image
 
     static constraints = {
         salePrice nullable: true

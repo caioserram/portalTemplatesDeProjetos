@@ -17,8 +17,8 @@
             <g:set var="products" value="${portaltemplatesdeprojetos.Product.list()}" />
             <g:if test="${products}">
                 <g:each in="${products}" var="product">
-                    <g:if test="${product.images.find {it.main}}">
-                        <img src="${product.images.find {it.main}.url}" alt="Imagem principal" />
+                    <g:if test="${product.image}">
+                        <img src="${product.image}" alt="Imagem principal" />
                     </g:if>
                     <g:else>
                         <asset:image src="sem-imagem.jpg"/>
