@@ -14,6 +14,17 @@
 </head>
 <body>
 
+    <div class="navbar navbar-static-top top-nav-bar" role="navigation">
+        <div class="login-container">
+            <a class="login-btn" href="/login">
+                <h1>Cadastre-se / Login</h1>
+            </a>
+        </div>
+        <div class="cart-container">
+            <h1>carrinho</h1>
+        </div>
+    </div>
+
     <div class="navbar navbar-default navbar-static-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -29,9 +40,12 @@
                     </i> Imperium
                 </a>
             </div>
-            <div class="navbar-collapse collapse" aria-expanded="false" style="height: 0.8px;">
+            <div class="header-menu">
                 <ul class="nav navbar-nav navbar-right">
-                    <g:pageProperty name="page.nav" />
+                    <li>HOME</li>
+                    <li>DOCUMENTOS</li>
+                    <li>CONTATO</li>
+                    <li><input type="text" placeholder="busca"></li>
                 </ul>
             </div>
         </div>
@@ -39,10 +53,19 @@
 
     <g:layoutBody/>
 
-    <div class="footer" role="contentinfo"></div>
+    <div class="footer" role="contentinfo">
+        <div class="footer-contato">
+            <p>ATENDIMENTO</p>
+            <p>(21) 3576-4203 / CONTATO@IMPERIUM.COM.BR</p>
+        </div>
 
-    <div id="spinner" class="spinner" style="display:none;">
-        <g:message code="spinner.alt" default="Loading&hellip;"/>
+        <div class="footer-social">
+            <input type="text" placeholder="busca"> <br>
+            <asset:image class="icon" src="icons/whatsapp.png"/>
+            <asset:image class="icon-larger" src="icons/facebook.png"/>
+            <asset:image class="icon" src="icons/instagram.png"/>
+            <h1>DESENVOLVIMENTO</h1>
+        </div>
     </div>
 
     <asset:javascript src="application.js"/>

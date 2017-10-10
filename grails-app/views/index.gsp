@@ -10,7 +10,7 @@
 
     <div id="content" role="main">
         <section class="row colset-2-its">
-            <h1>Nossos principais produtos</h1>
+            <h1>NOVIDADES</h1>
         </section>
 
         <section class="row">

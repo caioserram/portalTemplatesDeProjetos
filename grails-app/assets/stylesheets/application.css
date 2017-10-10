@@ -13,3 +13,57 @@
 *= require mobile
 *= require_self
 */
+
+.top-nav-bar {
+    background-color: #ffffff;
+}
+
+.login-container {
+    display: inline-block;
+}
+
+.login-btn {
+    color: #000;
+    text-decoration: none;
+    size: 2em;
+}
+
+.cart-container {
+    display: inline-block;
+    float: right;
+}
+
+.header-menu li {
+    color: #fff;
+}
+
+.header-menu input {
+    color: #000;
+}
+
+.footer {
+    height: 250px;
+}
+
+.footer-contato {
+    color: #fff;
+}
+
+.footer-social {
+    width: 300px;
+    display: inline-block;
+    float: right;
+}
+.footer-social h1 {
+    color: #fff;
+}
+
+.icon {
+    max-height: 30px;
+    max-width: 30px;
+}
+
+.icon-larger {
+    max-height: 45px;
+    max-width: 45px;
+}
