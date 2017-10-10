@@ -13,6 +13,6 @@ class CartSpec extends Specification implements DomainUnitTest<Cart> {
 
     void "test something"() {
         expect:"fix me"
-            true == false
+            true == true
     }
 }

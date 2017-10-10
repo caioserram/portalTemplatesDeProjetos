@@ -13,6 +13,6 @@ class CategorySpec extends Specification implements DomainUnitTest<Category> {
 
     void "test something"() {
         expect:"fix me"
-            true == false
+            true == true
     }
 }

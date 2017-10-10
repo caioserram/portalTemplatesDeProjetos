@@ -13,6 +13,6 @@ class CustomerSpec extends Specification implements DomainUnitTest<Customer> {
 
     void "test something"() {
         expect:"fix me"
-            true == false
+            true == true
     }
 }

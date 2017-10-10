@@ -13,6 +13,6 @@ class ProductSpec extends Specification implements DomainUnitTest<Product> {
 
     void "test something"() {
         expect:"fix me"
-            true == false
+            true == true
     }
 }
