@@ -15,7 +15,7 @@
             </g:elseif>
             <g:else>
                 <ul class="errors">
-                    <li>An error has occurred</li>
+                    <li>An error has occurredCaio</li>
                     <li>Exception: ${exception}</li>
                     <li>Message: ${message}</li>
                     <li>Path: ${path}</li>

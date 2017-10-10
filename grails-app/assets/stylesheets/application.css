@@ -34,11 +34,11 @@
 }
 
 .header-menu li {
-    color: #fff;
+    color: #fff;     padding: 15px;
 }
 
 .header-menu input {
-    color: #000;
+    color: #000;     margin-top: -10px;
 }
 
 .footer {
@@ -67,3 +67,4 @@
     max-height: 45px;
     max-width: 45px;
 }
+
