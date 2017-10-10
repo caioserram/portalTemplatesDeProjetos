@@ -15,10 +15,16 @@ group "portaltemplatesdeprojetos"
 
 apply plugin:"eclipse"
 apply plugin:"idea"
-apply plugin:"war"
+//apply plugin:"war"
 apply plugin:"org.grails.grails-web"
 apply plugin:"asset-pipeline"
 apply plugin:"org.grails.grails-gsp"
+
+springBoot {
+    // Enable the creation of a fully
+    // executable archive file.
+    executable = true
+}
 
 repositories {
     mavenLocal()
