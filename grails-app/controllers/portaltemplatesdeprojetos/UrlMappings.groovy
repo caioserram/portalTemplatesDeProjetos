@@ -10,6 +10,11 @@ class UrlMappings {
         }
 
         "/"(view:"/index")
+        "/produto/$id"(controller: "catalog", action: "product")
+        "/documentos"(controller: "catalog", action: "products")
+        "/contato"(view:"/contato")
+
+
         "500"(view:'/error')
         "404"(view:'/notFound')
     }

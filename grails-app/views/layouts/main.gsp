@@ -33,25 +33,19 @@
 
     <div class="navbar navbar-default navbar-static-top" role="navigation">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/#">
-                    <i class="fa grails-icon">
-                        <asset:image src="logo.png"/>
-                    </i> Imperium
-                </a>
-            </div>
             <div class="header-menu">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>HOME</li>
-                    <li>DOCUMENTOS</li>
-                    <li>CONTATO</li>
-                    <li><input type="text" placeholder="busca"></li>
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="/documentos">DOCUMENTOS</a></li>
+                    <li><a href="/contato">CONTATO</a></li>
+                    <li class="col-lg-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Procurar por...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-secondary" type="button">buscar</button>
+                            </span>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
