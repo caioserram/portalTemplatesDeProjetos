@@ -14,8 +14,10 @@
         </section>
 
         <section class="row">
+
             <g:set var="products" value="${portaltemplatesdeprojetos.Product.list()}" />
             <g:if test="${products}">
+                <div class="regular center" data-slick='{"slidesToShow": 3, "slidesToScroll": 3}'>
                 <g:each in="${products}" var="product">
                     <g:if test="${product.images.find {it.main}}">
                         <img src="${product.images.find {it.main}.url}" alt="Imagem principal" />
@@ -26,6 +28,7 @@
                     <br><span>${product.name}</span>
                     <br><g:formatNumber number="${product.listPrice}" type="currency" currencyCode="BRL" />
                 </g:each>
+                </div>
             </g:if>
             <g:else>
                 <h2>Nenhum produto no momento</h2>
@@ -34,6 +37,6 @@
     </div>
 
 
-
+<script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
 </body>
 </html>
