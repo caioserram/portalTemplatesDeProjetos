@@ -17,18 +17,18 @@
 
             <g:set var="products" value="${portaltemplatesdeprojetos.Product.list()}" />
             <g:if test="${products}">
-                <div class="regular center" data-slick='{"slidesToShow": 3, "slidesToScroll": 3}'>
+                <section class="regular center" data-slick='{"slidesToShow": 3, "slidesToScroll": 3}'>
                 <g:each in="${products}" var="product">
+                    <div>
                     <g:if test="${product.image}">
                         <img src="${product.image}" alt="Imagem principal" />
                     </g:if>
                     <g:else>
                         <asset:image src="sem-imagem.jpg"/>
                     </g:else>
-                    <br><span>${product.name}</span>
-                    <br><g:formatNumber number="${product.listPrice}" type="currency" currencyCode="BRL" />
+                    <br><span>${product.name}</span></div>
                 </g:each>
-                </div>
+                </section>
             </g:if>
             <g:else>
                 <h2>Nenhum produto no momento</h2>

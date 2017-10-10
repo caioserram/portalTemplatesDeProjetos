@@ -121,7 +121,7 @@
             dots: true,
             infinite: true,
             centerMode: true,
-            slidesToShow: 5,
+            slidesToShow: 3,
             slidesToScroll: 3
         });
         $(".variable").slick({
