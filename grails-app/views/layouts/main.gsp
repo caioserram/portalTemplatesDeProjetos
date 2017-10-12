@@ -10,134 +10,121 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <asset:stylesheet src="application.css"/>
     <asset:stylesheet src="slick.css"/>
     <asset:stylesheet src="slick-theme.css"/>
+    <asset:stylesheet src="application.css"/>
 
     <asset:javascript src="slick.js"/>
+    <asset:javascript src="application.js"/>
 
     <g:layoutHead/>
 </head>
 <body>
 
-    <div class="navbar navbar-static-top top-nav-bar" role="navigation">
-        <div class="login-container">
-            <g:if test="${session.customer}">
-                <h1>OLÁ, ${session.customer.name} (<a href="${createLink(controller: 'customer', action: 'logout')}">sair</a>)</h1>
-            </g:if>
-            <g:else>
-                <a class="login-btn" href="/login">
-                    <h1>Cadastre-se / Login</h1>
-                </a>
-            </g:else>
-        </div>
-        <div class="cart-container">
-            <h1>
-                <a href="${createLink(controller: 'cart', action: 'index')}">carrinho</a>
-                <g:if test="${session.cart}">
-                    (${session.cart.cartItems?.size() ?: 0})
-                </g:if>
-            </h1>
-        </div>
-    </div>
-
-    <div class="navbar navbar-default navbar-static-top" role="navigation">
+    <!-- NAVBAR -->
+    <div id="flipkart-navbar">
         <div class="container">
-            <div class="header-menu">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/">HOME</a></li>
-                    <li><a href="/documentos">DOCUMENTOS</a></li>
-                    <li><a href="/contato">CONTATO</a></li>
-                    <li class="col-lg-3">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Procurar por...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-secondary" type="button">buscar</button>
-                            </span>
-                        </div>
-                    </li>
+            <div class="row row1">
+                <ul class="largenav pull-right">
+                    <li class="upper-links"><a class="links" href="/documentos">Documentos</a></li>
+                    <li class="upper-links"><a class="links" href="/contato">Contato</a></li>
+
+                    <g:if test="${session.customer}">
+                        <li class="upper-links dropdown"><a class="links" href="http://clashhacks.in/">Olá, ${session.customer.name}</a>
+                            <ul class="dropdown-menu">
+                                <li class="profile-li"><a class="profile-links" href="http://yazilife.com/">Minha conta</a></li>
+                                <li class="profile-li"><a class="profile-links" href="http://hacksociety.tech/">Sair</a></li>
+                            </ul>
+                        </li>
+                    </g:if>
+                    <g:else>
+                        <li class="upper-links"><a class="links" href="/login">Cadastre-se / Login</a></li>
+                    </g:else>
                 </ul>
+            </div>
+            <div class="row row2">
+                <div class="col-sm-2">
+                    <h2 style="margin:0px;"><span class="smallnav menu" onclick="openNav()">☰ Brand</span></h2>
+                    <h1 style="margin:0px;"><span class="largenav"><a href="/" style="text-decoration: none; color: #FFF">Imperium</a></span></h1>
+                </div>
+                <div class="flipkart-navbar-search smallsearch col-sm-8 col-xs-11">
+                    <div class="row">
+                        <input class="flipkart-navbar-input col-xs-11" type="" placeholder="Buscar por..." name="search-query">
+                        <button class="flipkart-navbar-button col-xs-1">
+                            <svg width="15px" height="15px">
+                                <path d="M11.618 9.897l4.224 4.212c.092.09.1.23.02.312l-1.464 1.46c-.08.08-.222.072-.314-.02L9.868 11.66M6.486 10.9c-2.42 0-4.38-1.955-4.38-4.367 0-2.413 1.96-4.37 4.38-4.37s4.38 1.957 4.38 4.37c0 2.412-1.96 4.368-4.38 4.368m0-10.834C2.904.066 0 2.96 0 6.533 0 10.105 2.904 13 6.486 13s6.487-2.895 6.487-6.467c0-3.572-2.905-6.467-6.487-6.467 "></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div class="cart largenav col-sm-2">
+                    <a class="cart-button">
+                        <svg class="cart-svg " width="16 " height="16 " viewBox="0 0 16 16 ">
+                            <path d="M15.32 2.405H4.887C3 2.405 2.46.805 2.46.805L2.257.21C2.208.085 2.083 0 1.946 0H.336C.1 0-.064.24.024.46l.644 1.945L3.11 9.767c.047.137.175.23.32.23h8.418l-.493 1.958H3.768l.002.003c-.017 0-.033-.003-.05-.003-1.06 0-1.92.86-1.92 1.92s.86 1.92 1.92 1.92c.99 0 1.805-.75 1.91-1.712l5.55.076c.12.922.91 1.636 1.867 1.636 1.04 0 1.885-.844 1.885-1.885 0-.866-.584-1.593-1.38-1.814l2.423-8.832c.12-.433-.206-.86-.655-.86 " fill="#fff "></path>
+                        </svg> Cart
+                        <span class="item-number ">${session.cart?.cartItems?.size() ?: 0}</span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 
-    <g:layoutBody/>
-
-    <div class="footer" role="contentinfo">
-        <div class="footer-contato">
-            <p>ATENDIMENTO</p>
-            <p>(21) 3576-4203 / CONTATO@IMPERIUM.COM.BR</p>
+    <div id="mySidenav" class="sidenav">
+        <div class="container" style="background-color: #2874f0; padding-top: 10px;">
+            <span class="sidenav-heading">Home</span>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
         </div>
-
-        <div class="footer-social">
-            <input type="text" placeholder="busca"> <br>
-            <asset:image class="icon" src="icons/whatsapp.png"/>
-            <asset:image class="icon-larger" src="icons/facebook.png"/>
-            <asset:image class="icon" src="icons/instagram.png"/>
-            <h1>DESENVOLVIMENTO</h1>
-        </div>
+        <a href="http://clashhacks.in/">Link</a>
+        <a href="http://clashhacks.in/">Link</a>
+        <a href="http://clashhacks.in/">Link</a>
+        <a href="http://clashhacks.in/">Link</a>
     </div>
 
-<asset:javascript src="application.js"/>
-<asset:javascript src="slick.js"/>
+    <!-- FIM NAVBAR -->
 
-<script type="text/javascript">
-    $(document).on('ready', function() {
-        $(".vertical-center-4").slick({
-            dots: true,
-            vertical: true,
-            centerMode: true,
-            slidesToShow: 4,
-            slidesToScroll: 2
-        });
-        $(".vertical-center-3").slick({
-            dots: true,
-            vertical: true,
-            centerMode: true,
-            slidesToShow: 3,
-            slidesToScroll: 3
-        });
-        $(".vertical-center-2").slick({
-            dots: true,
-            vertical: true,
-            centerMode: true,
-            slidesToShow: 2,
-            slidesToScroll: 2
-        });
-        $(".vertical-center").slick({
-            dots: true,
-            vertical: true,
-            centerMode: true,
-        });
-        $(".vertical").slick({
-            dots: true,
-            vertical: true,
-            slidesToShow: 3,
-            slidesToScroll: 3
-        });
-        $(".regular").slick({
-            dots: true,
-            infinite: true,
-            slidesToShow: 3,
-            slidesToScroll: 3
-        });
-        $(".center").slick({
-            dots: true,
-            infinite: true,
-            centerMode: true,
-            slidesToShow: 3,
-            slidesToScroll: 3
-        });
-        $(".variable").slick({
-            dots: true,
-            infinite: true,
-            variableWidth: true
-        });
-        $(".lazy").slick({
-            lazyLoad: 'ondemand', // ondemand progressive anticipated
-            infinite: true
-        });
-    });
-</script>
+    <g:layoutBody/>
+
+    <footer>
+        <div class="footer" id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h3> Contato </h3>
+                        <ul>
+                            <li> (21) 3576-4203 </li>
+                            <li> CONTATO@IMPERIUM.COM.BR </li>
+                            <li> <asset:image class="icon" src="icons/whatsapp.png"/>
+                            <asset:image class="icon-big" src="icons/facebook.png"/>
+                            <asset:image class="icon" src="icons/instagram.png"/> </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
+                        <h3> Desenvolvimento </h3>
+                        <ul>
+                            <li> <a href="https://github.com/caioserram/portalTemplatesDeProjetos"> GitHub </a> </li>
+                            <li> <a href="http://www2.ic.uff.br/~andrea/gpms2017-2.html"> Pagina da disciplina </a> </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--/.row-->
+            </div>
+            <!--/.container-->
+        </div>
+        <!--/.footer-->
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p class="pull-left"> Copyright © 2017, Grupo 1. Todos direitos reservados.</p>
+                <div class="pull-right">
+                    <ul class="nav nav-pills payments">
+                        <li><asset:image class="icon-large" src="icons/uff.png"/></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--/.footer-bottom-->
+    </footer>
 </body>
 </html>
