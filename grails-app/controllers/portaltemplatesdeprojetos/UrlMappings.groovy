@@ -14,6 +14,7 @@ class UrlMappings {
         "/documentos"(controller: "catalog", action: "products")
         "/contato"(view:"/contato")
         "/carrinho"(controller: "cart", action:"index")
+        "/sair"(controller: "customer", action: "logout")
 
         "500"(view:'/error')
         "404"(view:'/notFound')
