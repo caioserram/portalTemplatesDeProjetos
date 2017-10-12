@@ -33,7 +33,7 @@
                         <li class="upper-links dropdown"><a class="links" href="http://clashhacks.in/">Olá, ${session.customer.name}</a>
                             <ul class="dropdown-menu">
                                 <li class="profile-li"><a class="profile-links" href="http://yazilife.com/">Minha conta</a></li>
-                                <li class="profile-li"><a class="profile-links" href="http://hacksociety.tech/">Sair</a></li>
+                                <li class="profile-li"><a class="profile-links" href="/index">Sair</a></li>
                             </ul>
                         </li>
                     </g:if>
@@ -44,8 +44,8 @@
             </div>
             <div class="row row2">
                 <div class="col-sm-2">
-                    <h2 style="margin:0px;"><span class="smallnav menu" onclick="openNav()">☰ Brand</span></h2>
-                    <h1 style="margin:0px;"><span class="largenav"><a href="/" style="text-decoration: none; color: #FFF">Imperium</a></span></h1>
+                    <h2 style="margin:0px;"><span class="smallnav menu" onclick="openNav()">☰ Imperium</span></h2>
+                    <h1 class="hidden-md" style="margin:0px;"><span class="largenav"><a href="/" style="text-decoration: none; color: #FFF">Imperium</a></span></h1>
                 </div>
                 <div class="flipkart-navbar-search smallsearch col-sm-8 col-xs-11">
                     <div class="row">
@@ -71,18 +71,29 @@
 
     <div id="mySidenav" class="sidenav">
         <div class="container" style="background-color: #2874f0; padding-top: 10px;">
-            <span class="sidenav-heading">Home</span>
+            <div class="sidenav-heading">
+                <g:if test="${session.customer}">
+                    <li class="dropdown"><a href="http://clashhacks.in/">Olá, ${session.customer.name}</a>
+                        <ul class="dropdown-menu">
+                            <li class="profile-li"><a class="profile-links" href="http://yazilife.com/">Minha conta</a></li>
+                            <li class="profile-li"><a class="profile-links" href="/index">Sair</a></li>
+                        </ul>
+                    </li>
+                </g:if>
+                <g:else>
+                    <li class="upper-links"><a class="links" href="/login">Cadastre-se / Login</a></li>
+                </g:else>
+            </div>
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
         </div>
-        <a href="http://clashhacks.in/">Link</a>
-        <a href="http://clashhacks.in/">Link</a>
-        <a href="http://clashhacks.in/">Link</a>
-        <a href="http://clashhacks.in/">Link</a>
+        <a href="/login">Cadastre-se / Login</a>
+        <a href="/documentos">Documentos</a>
+        <a href="/contato">Contato</a>
     </div>
 
     <!-- FIM NAVBAR -->
 
-    <g:layoutBody/>
+    <g:layoutBody style="height: 50%"/>
 
     <footer>
         <div class="footer" id="footer">

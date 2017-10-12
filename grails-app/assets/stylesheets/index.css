@@ -6,6 +6,10 @@
 @import url("bootstrap-override.css");
 @import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
 
+content-body{
+    size:50px;
+}
+
 h4{
     font-weight: 600;
 }
