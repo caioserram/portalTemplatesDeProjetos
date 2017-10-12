@@ -44,15 +44,6 @@ body {
 #grailsLogo {
     background-color: #abbf78;
 }
-#content > section:nth-child(2) > section > div > div > div > div > div > img {
-    border: solid;
-    padding: 2px;
-    width: 170px;
-    margin: 0 auto;
-}
-.slick-slide.slick-current.slick-active {
-    text-align: center;
-}
 
 a:hover, a:active {
     outline: none; /* prevents outline in webkit on active links but retains it for tab focus */
