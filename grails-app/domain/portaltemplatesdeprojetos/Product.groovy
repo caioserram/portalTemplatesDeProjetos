@@ -11,7 +11,6 @@ class Product {
     Category category
 
     static constraints = {
-        salePrice nullable: true
         category nullable: true
         price nullable: true
     }
