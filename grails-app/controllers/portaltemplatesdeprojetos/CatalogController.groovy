@@ -7,7 +7,7 @@ class CatalogController {
         Product product = Product.read(id)
 
         if(product) {
-            render(view: "produto.gsp", model: [product: product])
+            render(view: "produto", model: [product: product])
         } else {
             flash.errorMessage = "Produto não encontrado."
             redirect(uri:"/")

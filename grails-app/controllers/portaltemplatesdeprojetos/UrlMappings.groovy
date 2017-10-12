@@ -13,7 +13,7 @@ class UrlMappings {
         "/produto/$id"(controller: "catalog", action: "product")
         "/documentos"(controller: "catalog", action: "products")
         "/contato"(view:"/contato")
-
+        "/carrinho"(controller: "cart", action:"index")
 
         "500"(view:'/error')
         "404"(view:'/notFound')

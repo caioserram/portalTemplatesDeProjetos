@@ -22,12 +22,22 @@
 
     <div class="navbar navbar-static-top top-nav-bar" role="navigation">
         <div class="login-container">
-            <a class="login-btn" href="/login">
-                <h1>Cadastre-se / Login</h1>
-            </a>
+            <g:if test="${session.customer}">
+                <h1>OLÁ, ${session.customer.name} (<a href="${createLink(controller: 'customer', action: 'logout')}">sair</a>)</h1>
+            </g:if>
+            <g:else>
+                <a class="login-btn" href="/login">
+                    <h1>Cadastre-se / Login</h1>
+                </a>
+            </g:else>
         </div>
         <div class="cart-container">
-            <h1>carrinho</h1>
+            <h1>
+                <a href="${createLink(controller: 'cart', action: 'index')}">carrinho</a>
+                <g:if test="${session.cart}">
+                    (${session.cart.cartItems?.size() ?: 0})
+                </g:if>
+            </h1>
         </div>
     </div>
 

@@ -4,9 +4,9 @@ class CartItem {
 
     String name
     String description
-    BigDecimal listPrice
-    BigDecimal salePrice
+    BigDecimal price
     String category
+    String image
 
     static constraints = {
     }

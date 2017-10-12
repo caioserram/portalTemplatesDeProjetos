@@ -20,13 +20,7 @@
                 <section class="regular center" data-slick='{"slidesToShow": 3, "slidesToScroll": 3}'>
                 <g:each in="${products}" var="product">
                     <div class="col-xs-4">
-                        <a href="/produto"></a>
-                        <g:if test="${product.image}">
-                            <img src="${product.image}" alt="Imagem principal" />
-                        </g:if>
-                        <g:else>
-                            <asset:image src="sem-imagem.jpg"/>
-                        </g:else>
+                        <img src="${product.image ?: "/assets/sem-imagem.jpg"}" alt="Imagem principal" />
                         <br><span>${product.name}</span><br>
                         <a href="${createLink(uri:"/produto/$product.id")}">+ detalhes</a>
                     </div>
