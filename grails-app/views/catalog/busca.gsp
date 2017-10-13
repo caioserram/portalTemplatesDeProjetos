@@ -12,8 +12,6 @@
 
     <div class="container">
         <div class="row">
-            <g:set var="products" value="${portaltemplatesdeprojetos.Product.list()}" />
-
             <g:if test="${products}">
                 <g:each in="${products}" var="product">
                     <div class="col-md-3 col-sm-6">
@@ -24,21 +22,23 @@
                             <hr class="line">
                             <div class="row">
                                 <div class="col-md-6 col-sm-6">
-                                    <button class="btn btn-danger right details-btn" data-product-id="${product.id}" >DETALHES</button>
+                                    <button class="btn btn-danger right details-btn" id="${product.id}">DETALHES</button>
                                 </div>
                                 <div class="col-md-5 col-sm-5">
-                                    <button class="btn btn-success right buy-btn" data-product-id="${product.id}" >COMPRAR</button>
+                                    <button class="btn btn-success right buy-btn" id="${product.id}">COMPRAR</button>
                                 </div>
                             </div>
                         </span>
                     </div>
                 </g:each>
+
             </g:if>
             <g:else>
-                <h2>Nenhum produto no momento</h2>
+                <h2>Nenhum documento encontrado para a busca "${params.query}"<br>Tente outros termos</h2>
             </g:else>
         </div>
     </div>
+
 <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
 </body>
 </html>

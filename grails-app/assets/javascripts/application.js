@@ -12,10 +12,12 @@
 
 if (typeof jQuery !== 'undefined') {
     (function($) {
-        $(document).ajaxStart(function() {
-            $('#spinner').fadeIn();
-        }).ajaxStop(function() {
-            $('#spinner').fadeOut();
+        $(".details-btn").click(function(){
+            alert("Comprou " + $(this).attr('id'));
+        });
+
+        $(".buy-btn").click(function(){
+            alert("Comprou " + $(this).attr('id'));
         });
     })(jQuery);
 }
@@ -30,3 +32,23 @@ function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
     document.body.style.backgroundColor = "rgba(0,0,0,0)";
 }
+
+$(function(){
+    $(".details-btn").click(function(){
+        window.location = "/produto/" + $(this).attr('data-product-id')
+    });
+
+    $(".buy-btn").click(function(){
+        var productId = $(this).attr('data-product-id');
+        var uri = "/cart/add/" + productId;
+        $.ajax({
+            url: uri,
+            method: "POST"
+        }).success(function( data, text ) {
+            alert("Produto adicionado ao carrinho");
+            window.location = "/";
+        }).error(function (request, status, error) {
+            alert("Error: " + request.responseText + " Status: " + status + " Error: " + error);
+        });
+    });
+});

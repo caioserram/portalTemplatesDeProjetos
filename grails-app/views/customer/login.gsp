@@ -33,7 +33,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <form id="login-form" action="/customer/login" method="post" role="form" style="display: block;">
+                                    <form id="login-form" action="/customer/login${"?url=$params.url"}" method="post" role="form" style="display: block;">
                                         <div class="form-group">
                                             <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Email" value="">
                                         </div>
@@ -57,7 +57,7 @@
                                             </div>
                                         </div>
                                     </form>
-                                    <form id="register-form" action="/customer/register" method="post" role="form" style="display: none;">
+                                    <form id="register-form" action="/customer/register${"?url=$params.url"}" method="post" role="form" style="display: none;">
                                         <div class="form-group">
                                             <input type="text" name="name" id="name" tabindex="1" class="form-control" placeholder="Nome" value="">
                                         </div>

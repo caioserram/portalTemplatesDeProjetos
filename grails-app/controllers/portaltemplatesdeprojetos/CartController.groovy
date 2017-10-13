@@ -1,18 +1,61 @@
 package portaltemplatesdeprojetos
 
+import grails.converters.JSON
+
 class CartController {
 
+    def mailService
+
     def index() {
-        Customer customer = session.customer
+        render(view:"carrinho", model:[cart: getCart()])
+    }
 
-        Cart cart = session.cart ?: Cart.findByCustomerAndPurchased(customer, false)
+    def add(Long id) {
+        Cart cart = getCart()
+        Map responseMap
 
-        if(!cart) {
-            cart = new Cart(customer: customer)
+        if(cart.cartItems?.any {it.productId == id}) {
+
+            responseMap = [success: false, error: "Produto já foi adicionado ao carrinho."]
+
+        } else {
+            Product product = Product.read(id)
+
+            CartItem cartItem = new CartItem(name: product.name,
+                    price: product.price, description: product.description, shortDescription: product.shortDescription,
+                    category: product.category?.name, image: product.image, productId: id)
+
+            cart.addToCartItems(cartItem)
+
+            responseMap = [success:true]
         }
 
-        session.cart = cart
+        render responseMap as JSON
+    }
 
-        render(view:"carrinho", model:[cart: cart])
+    private Cart getCart() {
+        Cart cart = session.cart
+        Customer customer = session.customer
+
+        if(!cart && customer) {
+            cart = Cart.findByCustomerAndPurchased(customer, false) ?: new Cart(customer: customer)
+            session.cart = cart
+        } else if (!cart) {
+            cart = new Cart()
+            session.cart = cart
+        }
+
+        return cart
+    }
+
+    def teste() {
+        log.info "Iniciando envio de email"
+
+        mailService.sendMail {
+            to "ogomes.felipe@gmail.com"
+            cc "felipe.deoliveira@b2wdigital.com"
+            subject "Aplicação funciona rulez"
+            text 'Corpo da mensagem.....!'
+        }
     }
 }
