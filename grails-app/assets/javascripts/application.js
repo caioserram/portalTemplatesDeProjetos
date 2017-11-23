@@ -38,6 +38,21 @@ $(function(){
         window.location = "/produto/" + $(this).attr('data-product-id')
     });
 
+    $("#wishlist").click(function(){
+        var productId = $(this).attr('data-product-id');
+        var uri = "/customer/add/" + productId;
+        console.log(uri)
+        $.ajax({
+            url: uri,
+            method: "POST"
+        }).success(function( data, text ) {
+            alert("Produto adicionado ao wishlist")
+        }).error(function (request, status, error) {
+            console.log(error);
+            alert("Error: " + request.responseText + " Status: " + status + " Error: " + error);
+        });
+    });
+
     $(".buy-btn").click(function(){
         var productId = $(this).attr('data-product-id');
         var uri = "/cart/add/" + productId;
@@ -46,7 +61,6 @@ $(function(){
             method: "POST"
         }).success(function( data, text ) {
             alert("Produto adicionado ao carrinho");
-            window.location = "/";
         }).error(function (request, status, error) {
             alert("Error: " + request.responseText + " Status: " + status + " Error: " + error);
         });

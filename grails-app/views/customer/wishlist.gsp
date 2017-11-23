@@ -1,15 +1,14 @@
-<!doctype html>
 <html>
 <head>
     <meta name="layout" content="main"/>
     <title>Imperium - Loja Oficial</title>
 
-    <asset:link rel="icon" href="favicon.ico" type="image/x-ico" />
-    <asset:stylesheet src="index.css" />
-    <asset:stylesheet src="font-awesome.css" />
+    <asset:link rel="icon" href="favicon.ico" type="image/x-ico"/>
+    <asset:stylesheet src="index.css"/>
+    <asset:stylesheet src="font-awesome.css"/>
 </head>
-<body>
 
+<body>
 <div id="content" role="main">
 
     <g:if test="${products}">
@@ -49,7 +48,5 @@
     </g:else>
 
 </div>
-
-    <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
 </body>
 </html>

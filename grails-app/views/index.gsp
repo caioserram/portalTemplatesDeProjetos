@@ -15,6 +15,7 @@
             <g:set var="products" value="${portaltemplatesdeprojetos.Product.list()}" />
 
             <g:if test="${products}">
+                <h4>Documentos</h4>
                 <g:each in="${products}" var="product">
                     <div class="col-md-3 col-sm-6">
                         <span class="thumbnail">

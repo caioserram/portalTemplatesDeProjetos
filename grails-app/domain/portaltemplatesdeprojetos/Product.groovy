@@ -13,5 +13,6 @@ class Product {
     static constraints = {
         category nullable: true
         price nullable: true
+        image nullable: true
     }
 }

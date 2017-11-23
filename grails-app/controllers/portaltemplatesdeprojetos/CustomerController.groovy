@@ -1,6 +1,39 @@
 package portaltemplatesdeprojetos
 
+import grails.converters.JSON
+
 class CustomerController {
+
+    def wishlist(){
+        Customer customer = session.customer
+        Integer max = params.max ? params.max as Integer : 5
+        Integer offset = params.offset ? params.offset as Integer : 0
+
+        List<Product> products = customer.getWishList()
+
+        //System.out.println(products)
+
+        render(view:"wishlist.gsp", model:[products: products])
+    }
+
+    def add(Long id) {
+        Customer customer = session.customer
+        Map responseMap
+        if(customer.wishList?.any {it.id == id}) {
+
+            responseMap = [success: false, error: "Produto já foi adicionado ao Wish List."]
+
+        } else {
+            Product product = Product.read(id)
+
+            customer.addTo('wishList',product)
+
+            responseMap = [success:true]
+        }
+
+        render responseMap as JSON
+    }
+
 
     def login() {
         if(request.get) {

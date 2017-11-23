@@ -21,7 +21,7 @@ class CatalogController {
         Integer max = params.max ? params.max as Integer : 5
         Integer offset = params.offset ? params.offset as Integer : 0
 
-        List<Product> products = Product.list(max: max, offset: offset)
+        List<Product> products = Product.list()
 
         render(view:"documentos.gsp", model:[products: products])
 

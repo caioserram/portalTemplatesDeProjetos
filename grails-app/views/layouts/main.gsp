@@ -33,6 +33,7 @@
                         <li class="upper-links dropdown"><a class="links" href="http://clashhacks.in/">Olá, ${session.customer.name}</a>
                             <ul class="dropdown-menu">
                                 <li class="profile-li"><a class="profile-links" href="/minha-conta">Minha conta</a></li>
+                                <li class="profile-li"><a class="profile-links" href="/wishlist">Lista de Desejos</a></li>
                                 <li class="profile-li"><a class="profile-links" href="/sair">Sair</a></li>
                             </ul>
                         </li>

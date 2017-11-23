@@ -12,6 +12,7 @@ class UrlMappings {
         "/"(view:"/index")
         "/produto/$id"(controller: "catalog", action: "product")
         "/documentos"(controller: "catalog", action: "products")
+        "/wishlist"(controller: "customer", action: "wishlist")
         "/contato"(view:"/contato")
         "/carrinho"(controller: "cart", action:"index")
         "/sair"(controller: "customer", action: "logout")

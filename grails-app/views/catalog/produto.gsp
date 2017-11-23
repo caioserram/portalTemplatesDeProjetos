@@ -26,12 +26,12 @@
                         <div class="product-rating"><i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star gold"></i> <i class="fa fa-star-o"></i> </div>
                         <hr>
                         <div class="btn-group cart">
-                            <button type="button" class="btn btn-success">
+                            <button type="button" data-product-id="${product.id}" class="buy-btn">
                                 Adicionar ao carrinho
                             </button>
                         </div>
                         <div class="btn-group wishlist">
-                            <button type="button" class="btn btn-danger">
+                            <button id="wishlist" type="button" class="btn btn-danger" data-product-id="${product.id}">
                                 Salvar para depois
                             </button>
                         </div>
@@ -77,11 +77,13 @@
                         </div>
                     </div>
                     <hr>
-                    <h4>Produtos Relacionados</h4>
+
                     <div class="col-xs-12">
+
                         <g:set var="products" value="${portaltemplatesdeprojetos.Product.executeQuery("Select distinct p from Product p where p.category =:category and p.id != :id",[category:product.category,id:product.id])}" />
 
                         <g:if test="${products}">
+                            <h4>Produtos relacionados</h4>
                             <g:each in="${products}" var="product">
                                 <div class="col-md-3 col-sm-6">
                                     <span class="thumbnail">

@@ -5,6 +5,7 @@ class Customer {
     String username
     String password
 
+    List<Product> wishList
     String name
     String email
     String document
