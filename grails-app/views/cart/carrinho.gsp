@@ -22,7 +22,7 @@
 
     <div class="container">
         <g:if test="${!cart || !cart.cartItems?.size()}">
-            <div class="bg-danger text-white">Não há itens no carrinho.</div>
+            <h4>Não há itens no carrinho.</h4>
             <td><a href="/" class="btn btn-warning"><i class="fa fa-angle-left"></i> Volte a comprar</a>
         </g:if>
         <g:else>
