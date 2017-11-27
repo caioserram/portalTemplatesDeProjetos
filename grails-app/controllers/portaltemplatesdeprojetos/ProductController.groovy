@@ -37,6 +37,7 @@ class ProductController {
         byte[] file = request.getFile("file").bytes
         bindData(product, params)
         product.file = file
+        product.fileName = params.file
         product.category = Category.get(params.category)
 
         if(!product.save(flush: true)) {
@@ -55,14 +56,7 @@ class ProductController {
 
         log.error "@@@ Recompilou #### "
 
-        mailService.sendMail {
-            multipart true
-            to "ogomes.felipe@gmail.com"
-            cc "felipe.deoliveira@b2wdigital.com"
-            subject "Documento $product.name"
-            text 'Corpo da mensagem.....!'
-            attachBytes "${product.name}.c", "text/plain", product.file
-        }
+
     }
 
 }

@@ -10,6 +10,9 @@ class CartItem {
     String image
     Long productId
 
+    byte[] file
+    String fileName
+
     static constraints = {
     }
 }

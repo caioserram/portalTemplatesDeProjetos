@@ -4,7 +4,12 @@ import grails.converters.JSON
 
 class CustomerController {
 
-    def wishlist(){
+    def index() {
+        Customer customer = session.customer
+
+    }
+
+    def wishlist() {
         Customer customer = session.customer
         Integer max = params.max ? params.max as Integer : 5
         Integer offset = params.offset ? params.offset as Integer : 0
@@ -43,7 +48,7 @@ class CustomerController {
 
             if(customer && customer.password == params.password) {
                 session.customer = customer
-                redirect(uri: params.url ?: "/")
+                redirect(params.url ? [uri: params.url] : [action: "index"])
             } else {
                 flash.error = "Usuário e/ou senha incorretos."
                 render(view: "login")

@@ -8,4 +8,8 @@ class Cart {
 
     static constraints = {
     }
+
+    public boolean valid() {
+        return customer != null && !cartItems.isEmpty()
+    }
 }

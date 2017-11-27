@@ -65,7 +65,7 @@
                     <td><a href="/" class="btn btn-warning"><i class="fa fa-angle-left"></i> Volte a comprar</a></td>
                     <td colspan="2" class="hidden-xs"></td>
                     <td class="hidden-xs text-center"></td>
-                    <td><a href="${createLink(controller: "checkout", action: "start")}" class="btn btn-success btn-block">Ir para o checkout<i class="fa fa-angle-right"></i></a></td>
+                    <td><a href="${createLink(controller: "checkout", action: "purchase")}" class="btn btn-success btn-block">Finalizar pedido<i class="fa fa-angle-right"></i></a></td>
                 </tr>
                 </tfoot>
             </table>

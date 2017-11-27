@@ -8,6 +8,7 @@ class Product {
     BigDecimal price
     String image
     byte[] file
+    String fileName
 
     Category category
 
