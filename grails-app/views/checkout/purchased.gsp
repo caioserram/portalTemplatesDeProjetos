@@ -13,7 +13,9 @@
 
     <ul>
         <g:each in="${purchasedCart.cartItems}" var="item">
-            <li>${item.name}</li>
+            <li>
+                ${item.name} - Clique <g:link controller="product" action="download" id="${item.productId}">aqui</g:link><br> para baixar agora.
+            </li>
         </g:each>
     </ul>
 

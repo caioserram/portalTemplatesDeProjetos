@@ -37,7 +37,7 @@ class ProductController {
         byte[] file = request.getFile("file").bytes
         bindData(product, params)
         product.file = file
-        product.fileName = params.file
+        product.fileName = params.file.filename
         product.category = Category.get(params.category)
 
         if(!product.save(flush: true)) {
@@ -49,14 +49,17 @@ class ProductController {
         }
     }
 
-    def teste() {
-        log.info "Iniciando envio de email"
-
+    def download() {
         Product product = Product.get(params.id)
 
-        log.error "@@@ Recompilou #### "
-
-
+        if (product) {
+            response.setContentType("application/octet-stream")
+            response.setHeader("Content-disposition", "filename=${product.fileName}")
+            response.outputStream << product.file
+            return
+        } else {
+            flash.error = "Erro ao obter arquivo."
+        }
     }
 
 }

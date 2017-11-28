@@ -23,7 +23,8 @@ class CartController {
 
             CartItem cartItem = new CartItem(name: product.name,
                     price: product.price, description: product.description, shortDescription: product.shortDescription,
-                    category: product.category?.name, image: product.image, productId: id)
+                    category: product.category?.name, image: product.image, productId: id, file: product.file,
+                    fileName: product.fileName)
 
             cart.addToCartItems(cartItem)
 
