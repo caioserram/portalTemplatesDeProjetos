@@ -46,7 +46,7 @@ $(function(){
             url: uri,
             method: "POST"
         }).success(function( data, text ) {
-            alert("Produto adicionado ao wishlist.");
+            window.location = "/favoritos"
         }).error(function (request, status, error) {
             console.log(error);
             alert("Error: " + request.responseText + " Status: " + status + " Error: " + error);

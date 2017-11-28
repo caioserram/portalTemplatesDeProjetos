@@ -27,13 +27,12 @@
             <div class="row row1">
                 <ul class="largenav pull-right">
                     <li class="upper-links"><a class="links" href="/documentos">Documentos</a></li>
-                    <li class="upper-links"><a class="links" href="/contato">Contato</a></li>
 
                     <g:if test="${session.customer}">
-                        <li class="upper-links dropdown"><a class="links" href="http://clashhacks.in/">Olá, ${session.customer.name}</a>
+                        <li class="upper-links dropdown"><a class="links" href="/minha-conta">Olá, ${session.customer.name}</a>
                             <ul class="dropdown-menu">
                                 <li class="profile-li"><a class="profile-links" href="/minha-conta">Minha conta</a></li>
-                                <li class="profile-li"><a class="profile-links" href="/wishlist">Lista de Desejos</a></li>
+                                <li class="profile-li"><a class="profile-links" href="/favoritos">Lista de Desejos</a></li>
                                 <li class="profile-li"><a class="profile-links" href="/sair">Sair</a></li>
                             </ul>
                         </li>
