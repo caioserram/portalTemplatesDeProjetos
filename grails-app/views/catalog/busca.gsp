@@ -24,10 +24,10 @@
                             <hr class="line">
                             <div class="row">
                                 <div class="col-md-6 col-sm-6">
-                                    <button class="btn btn-danger right details-btn" id="${product.id}">DETALHES</button>
+                                    <button class="btn btn-danger right details-btn" data-product-id="${product.id}">DETALHES</button>
                                 </div>
                                 <div class="col-md-5 col-sm-5">
-                                    <button class="btn btn-success right buy-btn" id="${product.id}">COMPRAR</button>
+                                    <button class="btn btn-success right buy-btn" data-product-id="${product.id}">COMPRAR</button>
                                 </div>
                             </div>
                         </span>
