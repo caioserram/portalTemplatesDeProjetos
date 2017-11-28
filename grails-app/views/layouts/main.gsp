@@ -95,8 +95,9 @@
     </div>
 
     <!-- FIM NAVBAR -->
-
-    <g:layoutBody style="height: 50%"/>
+    <div id="content" role="main">
+        <g:layoutBody style="height: 50%"/>
+    </div>
 
     <footer>
         <div class="footer" id="footer">

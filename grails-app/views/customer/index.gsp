@@ -14,7 +14,26 @@
 <div id="content" role="main">
 
     <div class="container">
-        <h1>Olá, ${customer.name}</h1>
+        <h1>Detalhes da conta</h1>
+        <p><b>Usuario :</b> ${customer.name}</p>
+        <p><b>Email :</b> ${customer.email}</p>
+
+        <br>
+        <hr/>
+
+        <h2>Favoritos</h2>
+        <g:each in="${customer.wishList}" var="c" >
+            <a href="/produto/${c.id}" ><div class="wishlist-item">
+                <img src="${c.image}" alt=""><br>
+                ${c.name} <br>
+                ${c.shortDescription}
+
+
+            </div></a>
+
+        </g:each>
+
+
     </div>
 </div>
 

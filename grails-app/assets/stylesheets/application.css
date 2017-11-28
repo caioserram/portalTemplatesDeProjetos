@@ -224,6 +224,26 @@
     color: #fff;
 }
 
+div#content {
+    min-height: 450px;
+}
+
+.wishlist-item {
+    padding: 5px;
+    box-shadow: 0px 0px 8px #000000;
+    width: 210px;
+    float: left;
+    margin: 0 10px;
+    height: 210px;
+}
+
+.wishlist-item img {
+    width: 200px;
+}
+
+.wishlist-item::after {
+    clear: both;
+}
 
 .footer {
     background: #21313F;
@@ -234,7 +254,7 @@
     border-top: 1px solid #DDDDDD;
 }
 footer {
-    position: absolute;
+    position: relative;
     bottom: 0px;
     left: 0px;
     width: 100%;

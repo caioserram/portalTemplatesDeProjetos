@@ -9,6 +9,7 @@ class CustomerController {
     def index() {
         Customer customer = session.customer
 
+
         render(view: "index", model:[customer: customer])
     }
 

@@ -9,8 +9,10 @@
     <asset:stylesheet src="font-awesome.css" />
 </head>
 <body>
-
+<div id="content">
     <div class="container">
+        <h1>Resultado da pesquisa : "${params.query}"</h1>
+        <br>
         <div class="row">
             <g:if test="${products}">
                 <g:each in="${products}" var="product">
@@ -38,7 +40,7 @@
             </g:else>
         </div>
     </div>
-
+</div>
 <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
 </body>
 </html>

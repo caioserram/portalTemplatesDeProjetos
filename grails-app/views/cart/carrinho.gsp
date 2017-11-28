@@ -18,7 +18,7 @@
 
         </g:each>
     </g:else>
-</div>
+
 
     <div class="container">
         <g:if test="${!cart || !cart.cartItems?.size()}">
@@ -29,7 +29,7 @@
             <table id="cart" class="table table-hover table-condensed">
                 <thead>
                 <tr>
-                    <th style="width:50%">Product</th>
+                    <th style="width:50%">Documentos</th>
                     <th style="width:10%"></th>
                     <th style="width:8%"></th>
                     <th style="width:22%" class="text-center"></th>
@@ -71,7 +71,7 @@
             </table>
         </g:else>
     </div>
-
+</div>
 <script type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
 </body>
 </html>
