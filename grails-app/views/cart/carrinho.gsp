@@ -54,8 +54,7 @@
                         </td>
                         <td data-th="Subtotal" class="text-center"></td>
                         <td class="actions" data-th="">
-                            <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
-                            <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
+                            <button class="btn btn-danger btn-sm remove-from-cart" data-cart-id="${cart.id}" data-product-id="${cartItem.productId}"><i class="fa fa-trash-o"></i></button>
                         </td>
                     </tr>
                 </g:each>

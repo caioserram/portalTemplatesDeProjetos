@@ -26,10 +26,25 @@ class CartController {
                     category: product.category?.name, image: product.image, productId: id, file: product.file,
                     fileName: product.fileName)
 
+            cartItem.save()
+
             cart.addToCartItems(cartItem)
+            cart.save(flush: true)
 
             responseMap = [success:true]
         }
+
+        render responseMap as JSON
+    }
+
+    def remove(Long id) {
+        Cart cart = getCart()
+        Map responseMap
+
+        cart.cartItems.removeAll { it.productId == id}
+        cart = cart.save(flush:true)
+
+        responseMap = [success: cart != null]
 
         render responseMap as JSON
     }

@@ -46,7 +46,7 @@ $(function(){
             url: uri,
             method: "POST"
         }).success(function( data, text ) {
-            alert("Produto adicionado ao wishlist")
+            alert("Produto adicionado ao wishlist.");
         }).error(function (request, status, error) {
             console.log(error);
             alert("Error: " + request.responseText + " Status: " + status + " Error: " + error);
@@ -60,9 +60,24 @@ $(function(){
             url: uri,
             method: "POST"
         }).success(function( data, text ) {
-            alert("Produto adicionado ao carrinho");
+            window.location = "/carrinho";
         }).error(function (request, status, error) {
             alert("Error: " + request.responseText + " Status: " + status + " Error: " + error);
         });
     });
+
+    $(".remove-from-cart").click(function() {
+        var productId = $(this).attr('data-product-id');
+
+        var uri = "/cart/remove/" + productId;
+
+        $.ajax({
+            url: uri,
+            method: "POST"
+        }).success(function( data, text ) {
+            window.location = "/carrinho";
+        }).error(function (request, status, error) {
+            alert("Error: " + request.responseText + " Status: " + status + " Error: " + error);
+        });
+    })
 });

@@ -18,6 +18,7 @@ class UrlMappings {
         "/sair"(controller: "customer", action: "logout")
         "/busca"(controller: "catalog", action: "search")
         "/minha-conta"(controller: "customer", action: "index")
+        "/pedido/$id"(controller: "customer", action: "orderDetails")
 
         "500"(view:'/error')
         "404"(view:'/notFound')

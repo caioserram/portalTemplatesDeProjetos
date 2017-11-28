@@ -15,4 +15,8 @@ class Customer {
         document blank: true, nullable: true
         birthDate blank: true, nullable: true
     }
+
+    static mapping = {
+        wishList fetch: 'join'
+    }
 }

@@ -57,6 +57,7 @@ dependencies {
     compile 'com.github.jsimone:webapp-runner:8.5.11.3'
     compile 'org.grails.plugins:postgresql-extensions:5.1.0'
     console "org.grails:grails-console"
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.44'
     profile "org.grails.profiles:web"
     runtime "org.glassfish.web:el-impl:2.1.2-b03"
     runtime "com.h2database:h2"

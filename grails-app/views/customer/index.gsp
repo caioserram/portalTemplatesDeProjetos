@@ -23,17 +23,26 @@
 
         <h2>Favoritos</h2>
         <g:each in="${customer.wishList}" var="c" >
-            <a href="/produto/${c.id}" ><div class="wishlist-item">
-                <img src="${c.image}" alt=""><br>
-                ${c.name} <br>
-                ${c.shortDescription}
-
-
-            </div></a>
-
+            <a href="/produto/${c.id}" >
+                <div class="wishlist-item">
+                    <img src="${c.image}" alt=""><br>
+                    ${c.name} <br>
+                    ${c.shortDescription}
+                </div>
+            </a>
         </g:each>
 
-
+        <h2>Pedidos</h2>
+        <g:if test="${carts}">
+            <g:each in="${carts}" var="c" >
+                <a href="/pedido/${c.id}" >
+                    Detalhes pedido #${c.id}
+                </a>
+            </g:each>
+        </g:if>
+        <g:else>
+            <p>Não há pedidos.</p>
+        </g:else>
     </div>
 </div>
 

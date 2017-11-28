@@ -9,8 +9,14 @@ class CheckoutController {
 
         Cart cart = session.cart ?: Cart.findByCustomerAndPurchased(customer, false)
 
+        if(cart && !cart.customer) {
+            cart.customer = customer
+        }
+
         if(cart?.valid()) {
             mailCustomer(cart)
+            cart.purchased = true
+            cart.save(flush: true)
             session.cart = null
             render(view: "purchased", model:[purchasedCart: cart])
         } else {
@@ -24,7 +30,7 @@ class CheckoutController {
         cart.cartItems.each { item ->
 
             log.error("${item.fileName} - ${item.file}")
-            
+
             mailService.sendMail {
                 multipart true
                 to cart.customer.email

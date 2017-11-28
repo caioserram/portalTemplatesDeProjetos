@@ -7,6 +7,7 @@ class Cart {
     boolean purchased = false
 
     static constraints = {
+        customer nullable: true
     }
 
     public boolean valid() {

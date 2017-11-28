@@ -8,9 +8,8 @@ class CustomerController {
 
     def index() {
         Customer customer = session.customer
-
-
-        render(view: "index", model:[customer: customer])
+        customer.wishList
+        render(view: "index", model:[customer: customer, carts: Cart.findAllByCustomerAndPurchased(customer, true)])
     }
 
     def wishlist() {
@@ -28,14 +27,13 @@ class CustomerController {
     def add(Long id) {
         Customer customer = session.customer
         Map responseMap
+
         if(customer.wishList?.any {it.id == id}) {
-
             responseMap = [success: false, error: "Produto já foi adicionado ao Wish List."]
-
         } else {
-            Product product = Product.read(id)
-
-            customer.addTo('wishList',product)
+            Product product = Product.get(id)
+            customer.addTo('wishList', product)
+            customer.save(flush: true)
 
             responseMap = [success:true]
         }
@@ -86,5 +84,16 @@ class CustomerController {
     def logout() {
         session.customer = null
         redirect(uri:"/")
+    }
+
+    def orderDetails(Long id) {
+        Cart cart = Cart.findByCustomerAndId(session.customer, id)
+
+        if(cart) {
+           render(view: "pedido", model: [cart: cart])
+        } else {
+            flash.error = "Pedido não encontrado."
+            redirect(action: "index")
+        }
     }
 }
