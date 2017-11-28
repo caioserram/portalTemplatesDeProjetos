@@ -34,7 +34,9 @@ class CartController {
                 session.cart = cart
                 responseMap = [success:true]
             } else {
-                responseMap = [success:false, error: cart.errors]
+                String errors = cart.errors.collect { it.getFieldError().toString() }.join(",")
+                log.error("Erro ao salvar carrinho. Erros: $errors")
+                responseMap = [success:false, error: errors]
             }
         }
 
