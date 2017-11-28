@@ -19,7 +19,7 @@
         <g:each in="${products}" var="product">
             <div class="col-md-3 col-sm-6 product-thumb">
                 <span class="thumbnail product-thumb">
-                    <img src="${product.image ?: "/assets/sem-imagem.jpg"}" alt="Imagem principal" style="max-height: 200px;">
+                    <img src="${product.image ?: "/assets/sem-imagem.jpg"}" alt="Imagem principal" style="max-height: 250px;">
                     <h4>${product.name}</h4>
 
                     <p>${product.shortDescription}</p>
