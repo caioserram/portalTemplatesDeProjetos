@@ -15,7 +15,7 @@
     <div class="container">
         <g:if test="${products}">
 
-            <h4>Sua lista de desejos:</h4>
+            <h3>Todos documentos</h3>
 
             <div class="row">
                 <g:each in="${products}" var="product">
