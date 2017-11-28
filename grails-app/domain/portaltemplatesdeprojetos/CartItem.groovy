@@ -15,6 +15,8 @@ class CartItem {
     String fileName
 
     static constraints = {
+        category nullable: true, blank: true
+        image nullable: true, blank: true
         file(maxSize: MAX_SIZE)
     }
 }
