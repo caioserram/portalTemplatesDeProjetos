@@ -10,17 +10,10 @@
 <body>
 
 <div id="content" role="main">
-    <g:if test="${!cart}">
-        <div class="bg-danger text-white">Erro ao carregar carrinho, recarregue a página.</div>
-    </g:if>
-    <g:else>
-        <g:each in="${cart.cartItems}" var="cartItem">
-
-        </g:each>
-    </g:else>
-
-
     <div class="container">
+        <g:if test="${flash.error}">
+            <div class="bg-danger text-white">${flash.error}</div>
+        </g:if>
         <g:if test="${!cart || !cart.cartItems?.size()}">
             <h4>Não há itens no carrinho.</h4>
             <td><a href="/" class="btn btn-warning"><i class="fa fa-angle-left"></i> Volte a comprar</a>

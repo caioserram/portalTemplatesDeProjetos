@@ -31,6 +31,7 @@ class CartController {
             cart.addToCartItems(cartItem)
 
             if (!cart.save(flush: true)) {
+                session.cart = cart
                 responseMap = [success:true]
             } else {
                 responseMap = [success:false, error: cart.errors]

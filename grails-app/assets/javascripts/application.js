@@ -60,10 +60,11 @@ $(function(){
             url: uri,
             method: "POST"
         }).success(function( data, text ) {
+            console.log("data: ");
             if(data.success) {
                 window.location = "/carrinho";
             } else {
-                alert("Error: " + data.error)
+                alert(data.error)
             }
         }).error(function (request, status, error) {
             alert("Error: " + request.responseText + " Status: " + status + " Error: " + error);

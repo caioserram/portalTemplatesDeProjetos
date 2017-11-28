@@ -6,19 +6,27 @@ class CheckoutController {
 
     def purchase() {
         Customer customer = session.customer
-
         Cart cart = session.cart ?: Cart.findByCustomerAndPurchased(customer, false)
 
+        log.info "Criando pedido para cliente ${customer.email}. Carrinho Id: ${cart.id}"
+
         if(cart && !cart.customer) {
+            log.error "Carrinho $cart.id sem customer, pegando da sessão."
             cart.customer = customer
         }
 
         if(cart?.valid()) {
             mailCustomer(cart)
             cart.purchased = true
-            cart.save(flush: true)
-            session.cart = null
-            render(view: "purchased", model:[purchasedCart: cart])
+
+            if(!cart.save(flush: true)) {
+                flash.error = "Erro ao processar pedido."
+                log.error("Erro ao processar pedido. Errors: ${cart.errors}")
+                redirect(controller: "cart", action:"index")
+            } else {
+                session.cart = null
+                render(view: "purchased", model:[purchasedCart: cart])
+            }
         } else {
             flash.error = "Carrinho não encontrado."
             redirect(uri: "/")
