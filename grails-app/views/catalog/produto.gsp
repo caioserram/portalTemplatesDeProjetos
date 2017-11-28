@@ -62,9 +62,9 @@
                     <g:if test="${products}">
                         <h4>Produtos relacionados</h4>
                         <g:each in="${products}" var="product">
-                            <div class="col-md-3 col-sm-6">
-                                <span class="thumbnail">
-                                    <img src="${product.image ?: "/assets/sem-imagem.jpg"}" alt="Imagem principal">
+                            <div class="col-md-3 col-sm-6" style="min-height: 180px;">
+                                <span class="thumbnail" style="min-height: 180px;">
+                                    <img src="${product.image ?: "/assets/sem-imagem.jpg"}" alt="Imagem principal" style="height: 180px;">
                                     <h4>${product.name}</h4>
                                     <p>${product.shortDescription}</p>
                                     <hr class="line">

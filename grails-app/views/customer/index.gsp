@@ -21,12 +21,12 @@
         <br/>
         <div class="row">
             <b class="col-xs-1">Usuario:</b>
-            <span class="col-xs-1">${customer.name}</span>
+            <span class="col-xs-3">${customer.name}</span>
         </div>
 
         <div class="row">
             <b class="col-xs-1">Email:</b>
-            <span class="col-xs-1">${customer.email}</span>
+            <span class="col-xs-3">${customer.email}</span>
         </div>
 
         <br>
