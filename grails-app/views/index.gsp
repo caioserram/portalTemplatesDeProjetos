@@ -17,15 +17,15 @@
     <g:if test="${products}">
         <h4>Documentos</h4>
         <g:each in="${products}" var="product">
-            <div class="col-md-3 col-sm-6">
-                <span class="thumbnail">
-                    <img src="${product.image ?: "/assets/sem-imagem.jpg"}" alt="Imagem principal">
+            <div class="col-md-3 col-sm-6 product-thumb">
+                <span class="thumbnail product-thumb">
+                    <img src="${product.image ?: "/assets/sem-imagem.jpg"}" alt="Imagem principal" style="max-height: 250px;">
                     <h4>${product.name}</h4>
 
                     <p>${product.shortDescription}</p>
                     <hr class="line">
 
-                    <div class="row">
+                    <div class="row buttons">
                         <div class="col-md-6 col-sm-6">
                             <button class="btn btn-danger right details-btn"
                                     data-product-id="${product.id}">DETALHES</button>
