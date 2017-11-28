@@ -100,3 +100,13 @@ body {
 .padding-top {
     padding-top:17px;
 }
+
+
+.product-thumb {
+    min-height: 250px;
+}
+
+.buttons {
+    position:absolute; bottom:35px;
+    right: 20px;
+}

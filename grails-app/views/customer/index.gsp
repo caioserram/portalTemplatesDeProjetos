@@ -35,9 +35,9 @@
         <div class="row">
             <h2>Favoritos</h2>
             <g:each in="${customer.wishList}" var="product">
-                <div class="col-md-3 col-sm-6">
-                    <span class="thumbnail">
-                        <img src="${product.image ?: "/assets/sem-imagem.jpg"}" alt="Imagem principal">
+                <div class="col-md-3 col-sm-6 product-thumb">
+                    <span class="thumbnail product-thumb">
+                        <img src="${product.image ?: "/assets/sem-imagem.jpg"}" alt="Imagem principal" style="max-height: 250px;">
                         <h4>${product.name}</h4>
 
                         <p>${product.shortDescription}</p>
