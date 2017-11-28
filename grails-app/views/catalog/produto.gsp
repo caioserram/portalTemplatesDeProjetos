@@ -15,7 +15,7 @@
                 <div class="col-md-12">
                     <div class="product col-md-3 service-image-left">
                         <center>
-                            <img id="item-display" src="${product.image ?: "/assets/sem-imagem.jpg"}" alt=""></img>
+                            <img id="item-display" src="${product.image ?: "/assets/sem-imagem.jpg"}" alt="" style="height: 250px"></img>
                         </center>
                     </div>
                 </div>
