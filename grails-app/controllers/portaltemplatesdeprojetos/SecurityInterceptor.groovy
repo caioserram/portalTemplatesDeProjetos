@@ -18,10 +18,14 @@ class SecurityInterceptor {
         if (!session.customer && actionName != "login") {
             log.error("Usuário não logado.")
 
-            if(!request.forwardURI.contains("login"))
-                flash.error = "Usuário não autorizado, por favor, identifique-se."
+            def urlParams = [:]
 
-            redirect(controller: "customer", action: "login", params: [url: request.forwardURI])
+            if(!request.forwardURI.contains("login")) {
+                flash.error = "Usuário não autorizado, por favor, identifique-se."
+                urlParams = [url: request.forwardURI]
+            }
+
+            redirect(controller: "customer", action: "login", params: urlParams)
             return false
         }
         return true
