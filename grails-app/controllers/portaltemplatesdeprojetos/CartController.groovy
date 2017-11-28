@@ -29,9 +29,12 @@ class CartController {
             cartItem.save()
 
             cart.addToCartItems(cartItem)
-            cart.save(flush: true)
 
-            responseMap = [success:true]
+            if (!cart.save(flush: true)) {
+                responseMap = [success:true]
+            } else {
+                responseMap = [success:false, error: cart.errors]
+            }
         }
 
         render responseMap as JSON

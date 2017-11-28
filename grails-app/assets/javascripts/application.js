@@ -60,7 +60,11 @@ $(function(){
             url: uri,
             method: "POST"
         }).success(function( data, text ) {
-            window.location = "/carrinho";
+            if(data.success) {
+                window.location = "/carrinho";
+            } else {
+                alert("Error: " + data.error)
+            }
         }).error(function (request, status, error) {
             alert("Error: " + request.responseText + " Status: " + status + " Error: " + error);
         });

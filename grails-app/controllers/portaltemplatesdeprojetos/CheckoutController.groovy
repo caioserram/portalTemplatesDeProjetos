@@ -29,7 +29,7 @@ class CheckoutController {
 
         cart.cartItems.each { item ->
 
-            log.error("${item.fileName} - ${item.file}")
+            log.info("Enviando email para o cliente ${cart.customer.email}: ${item.fileName}")
 
             mailService.sendMail {
                 multipart true
