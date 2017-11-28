@@ -14,10 +14,13 @@ class Product {
 
     Category category
 
+    Date dateCreated
+
     static constraints = {
         category nullable: true
         price nullable: true
         image nullable: true
+        dateCreated nullable: true
         file(maxSize: MAX_SIZE)
     }
 }

@@ -38,8 +38,10 @@
                         </div>
                     </td>
                     <td class="actions" data-th="">
-                        <button class="btn btn-success btn-sm"><g:link controller="product" action="download"
-                                                                       id="${item.productId}">Baixar</g:link></button>
+                        <g:link controller="product" action="download"
+                                id="${item.productId}">
+                            <button class="btn btn-success btn-sm">Baixar</button>
+                        </g:link>
                     </td>
                 </tr>
 

@@ -14,34 +14,30 @@
 <div id="content" role="main">
     <div class="container">
         <g:if test="${products}">
+            <h4>Todos Documentos</h4>
+            <g:each in="${products}" var="product">
+                <div class="col-md-3 col-sm-6 product-thumb">
+                    <span class="thumbnail product-thumb">
+                        <img src="${product.image ?: "/assets/sem-imagem.jpg"}" alt="Imagem principal" style="max-height: 250px;">
+                        <h4>${product.name}</h4>
 
-            <h3>Todos documentos</h3>
+                        <p>${product.shortDescription}</p>
+                        <hr class="line">
 
-            <div class="row">
-                <g:each in="${products}" var="product">
-                    <div class="col-md-3 col-sm-6">
-                        <span class="thumbnail">
-                            <img src="${product.image ?: "/assets/sem-imagem.jpg"}" alt="Imagem principal">
-                            <h4>${product.name}</h4>
-
-                            <p>${product.shortDescription}</p>
-                            <hr class="line">
-
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-6">
-                                    <button class="btn btn-danger right details-btn"
-                                            data-product-id="${product.id}">DETALHES</button>
-                                </div>
-
-                                <div class="col-xs-12 col-sm-6">
-                                    <button class="btn btn-success right buy-btn"
-                                            data-product-id="${product.id}">COMPRAR</button>
-                                </div>
+                        <div class="row buttons">
+                            <div class="col-md-6 col-sm-6">
+                                <button class="btn btn-danger right details-btn"
+                                        data-product-id="${product.id}">DETALHES</button>
                             </div>
-                        </span>
-                    </div>
-                </g:each>
-            </div>
+
+                            <div class="col-md-5 col-sm-5">
+                                <button class="btn btn-success right buy-btn"
+                                        data-product-id="${product.id}">COMPRAR</button>
+                            </div>
+                        </div>
+                    </span>
+                </div>
+            </g:each>
         </g:if>
         <g:else>
             <h2>Nenhum produto no momento</h2>
