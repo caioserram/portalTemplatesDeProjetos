@@ -3,6 +3,7 @@ package portaltemplatesdeprojetos
 class Cart {
 
     List<CartItem> cartItems
+    Date dateCreated
     Customer customer
     boolean purchased = false
 

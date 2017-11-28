@@ -15,7 +15,7 @@
             <div class="bg-danger text-white">${flash.error}</div>
         </g:if>
         <g:if test="${!cart || !cart.cartItems?.size()}">
-            <h4>Não há itens no carrinho.</h4>
+            <h2>Não há itens no carrinho.</h2>
             <td><a href="/" class="btn btn-warning"><i class="fa fa-angle-left"></i> Volte a comprar</a>
         </g:if>
         <g:else>
