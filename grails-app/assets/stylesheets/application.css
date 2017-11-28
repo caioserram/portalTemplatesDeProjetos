@@ -229,10 +229,15 @@
     background: #21313F;
     height: auto;
     padding-bottom: 30px;
-    position: relative;
     width: 100%;
     border-bottom: 1px solid #CCCCCC;
     border-top: 1px solid #DDDDDD;
+}
+footer {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
 }
 
 .footer h3 {

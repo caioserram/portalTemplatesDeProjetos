@@ -1,5 +1,7 @@
 package portaltemplatesdeprojetos
 
+
+
 import grails.converters.JSON
 
 class CustomerController {
@@ -56,6 +58,7 @@ class CustomerController {
             }
         }
     }
+
 
     def register() {
         if(params.password == params.confirmPassword) {
