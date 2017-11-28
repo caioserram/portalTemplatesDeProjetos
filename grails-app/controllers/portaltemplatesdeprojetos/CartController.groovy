@@ -30,12 +30,12 @@ class CartController {
 
             cart.addToCartItems(cartItem)
 
-            if (!cart.save(flush: true)) {
+            if (cart.save(flush: true)) {
                 session.cart = cart
                 responseMap = [success:true]
             } else {
                 String errors = cart.errors.collect { it.getFieldError().toString() }.join(",")
-                log.error("Erro ao salvar carrinho. Erros: ${cart.errors}")
+                log.error("Erro ao salvar carrinho. ${cart.id} Erros: ${cart.errors}")
                 responseMap = [success:false, error: errors]
             }
         }
